@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Grid, Typography, Card, CardContent, CardHeader } from "@mui/material";
 import MaterialTile from "./MaterialTile"; // Assuming MaterialTile is in the same directory
-import components from "../asserts/Components.png"; // Corrected import paths
-import lidParts from "../asserts/Components.png";
+import components from "../asserts/components.jpeg"; // Corrected import paths
+import lidParts from "../asserts/Lid parts.png";
 import handleParts from "../asserts/handle parts.png";
 import innerWires from "../asserts/innser wires.png";
 import baseParts from "../asserts/base parts.png";
