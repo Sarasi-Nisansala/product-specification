@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, List, ListItem, ListItemText, Grid } from '@mui/material';
+import LCA from '../asserts/LCA.jpg';
 
 const EnvironmentalImpactSection = () => {
     const impactData = {
@@ -37,13 +38,13 @@ const EnvironmentalImpactSection = () => {
                 backgroundColor: '#f8f8f8',
                 borderRadius: '20px',
                 padding: '2rem',
-                maxWidth: '700px',
+                maxWidth: '800px',
                 margin: '2rem auto',
                 boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
             }}
         >
-            <Typography variant="subtitle1" gutterBottom>
-                LCA
+            <Typography variant="h4" fontWeight="bold" gutterBottom style={{ textAlign: 'left' }}>
+            Environmental Impact (LCA)
             </Typography>
 
             <Box
@@ -57,7 +58,7 @@ const EnvironmentalImpactSection = () => {
             >
                 {/* Replace with your image URL */}
                 <img
-                    src="https://i.imgur.com/your_environmental_impacts_image.png"
+                    src={LCA}
                     alt="Environmental Impacts"
                     style={{ maxWidth: '100%' }}
                 />

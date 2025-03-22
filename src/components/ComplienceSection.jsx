@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Typography, List, ListItem, ListItemText, Grid, Avatar, Tooltip } from '@mui/material';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle'; // Example regulation icon
-import VerifiedUserIcon from '@mui/icons-material/VerifiedUser'; // Example certification icon
+import { Box, Typography, List, ListItem, ListItemText, Grid, Avatar, Tooltip, Card, CardContent, CardHeader } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 
 const ComplianceSection = () => {
     const complianceData = {
@@ -14,19 +14,18 @@ const ComplianceSection = () => {
         certifications: [
             {
                 name: 'ISO 9001',
-                logo: 'https://via.placeholder.com/50', // Replace with ISO 9001 logo URL
+                logo: 'https://worldvectorlogo.com/logo/iso-9001-sgs',
                 description: 'Certified for quality management systems.',
                 icon: <VerifiedUserIcon color="success" />,
                 details: 'ISO 9001 certification details: [Specific details]',
             },
             {
                 name: 'CE Marking',
-                logo: 'https://via.placeholder.com/50', // Replace with CE Marking logo URL
+                logo: 'https://www.alamy.com/ce-mark-symbol-for-conformite-europeenne-clean-label-product-information-vector-illustration-sign-image423468265.html',
                 description: 'Complies with European safety, health, and environmental protection requirements.',
                 icon: <VerifiedUserIcon color="success" />,
                 details: 'CE Marking details: [Specific details]',
             },
-            // Add more certifications as needed
         ],
     };
 
@@ -36,40 +35,41 @@ const ComplianceSection = () => {
                 backgroundColor: '#f8f8f8',
                 borderRadius: '20px',
                 padding: '2rem',
-                maxWidth: '700px',
+                maxWidth: '800px',
                 margin: '2rem auto',
                 boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
             }}
         >
-            <Typography variant="h6" gutterBottom>
+            <Typography variant="h4" fontWeight="bold" gutterBottom style={{ textAlign: 'left' }}>
                 Compliance
             </Typography>
 
-            <Box
-                sx={{
-                    backgroundColor: 'white',
-                    borderRadius: '16px',
-                    padding: '2rem',
-                    boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.1)',
-                }}
-            >
-                <List>
-                    <ListItem disablePadding>
-                        <ListItemText
-                            primary={complianceData.productRegulation.title}
-                            secondary={complianceData.productRegulation.description}
-                            primaryTypographyProps={{ variant: 'subtitle1' }}
-                        />
-                        <Tooltip title={complianceData.productRegulation.details}>
-                            {complianceData.productRegulation.icon}
-                        </Tooltip>
-                    </ListItem>
+            <Card sx={{ mb: 4 }}>
+                <CardContent>
+                    <Typography variant="h6" fontWeight="semibold" style={{ textAlign: 'left', marginBottom: '1rem' }}>
+                        {complianceData.productRegulation.title}
+                    </Typography>
+                    <Grid container alignItems="center" gap={2}>
+                        <Grid item xs>
+                            <Typography variant="body1" color="textSecondary">
+                                {complianceData.productRegulation.description}
+                            </Typography>
+                        </Grid>
+                        <Grid item>
+                            <Tooltip title={complianceData.productRegulation.details}>
+                                {complianceData.productRegulation.icon}
+                            </Tooltip>
+                        </Grid>
+                    </Grid>
+                </CardContent>
+            </Card>
 
-                    <ListItem disablePadding>
-                        <ListItemText primary="Certifications" primaryTypographyProps={{ variant: 'subtitle1' }} />
-                    </ListItem>
-
-                    <List component="div" disablePadding sx={{ pl: 4 }}>
+            <Card>
+                <CardContent>
+                    <Typography variant="h6" fontWeight="semibold" style={{ textAlign: 'left', marginBottom: '1rem' }}>
+                        Certifications
+                    </Typography>
+                    <List>
                         {complianceData.certifications.map((cert, index) => (
                             <ListItem key={index} disablePadding>
                                 <Grid container alignItems="center" spacing={2}>
@@ -91,8 +91,8 @@ const ComplianceSection = () => {
                             </ListItem>
                         ))}
                     </List>
-                </List>
-            </Box>
+                </CardContent>
+            </Card>
         </Box>
     );
 };

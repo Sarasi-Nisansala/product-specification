@@ -12,8 +12,13 @@ import {
     DialogContent,
     DialogContentText,
     DialogActions,
+    Card,
+    CardContent,
+    CardHeader
 } from '@mui/material';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever'; // For recycling
+import StoreIcon from '@mui/icons-material/Store';       // For resellers
 
 const EndOfLifeManagement = () => {
     const [openDialog, setOpenDialog] = useState(false);
@@ -29,7 +34,7 @@ const EndOfLifeManagement = () => {
     };
 
     const handleResellOnEbay = () => {
-        window.open('https://www.ebay.com', '_blank'); // Open eBay in a new tab
+        window.open('https://www.ebay.com', '_blank');
     };
 
     return (
@@ -38,96 +43,96 @@ const EndOfLifeManagement = () => {
                 backgroundColor: '#f8f8f8',
                 borderRadius: '20px',
                 padding: '2rem',
-                maxWidth: '700px',
+                maxWidth: '800px',
                 margin: '2rem auto',
                 boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
             }}
         >
-            <Typography variant="h6" gutterBottom>
-                End of life management
+            <Typography variant="h4" fontWeight="bold" gutterBottom style={{ textAlign: 'left' }}>
+                End of Life Management
             </Typography>
 
-            <Box
-                sx={{
-                    backgroundColor: 'white',
-                    borderRadius: '16px',
-                    padding: '2rem',
-                    boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.1)',
-                }}
-            >
-                <Typography variant="subtitle1" gutterBottom>
-                    Step-by-Step Guide to Dispose of Your Electric Kettle
-                </Typography>
+            <Card sx={{ mb: 4 }}>
+                <CardContent>
+                    <Typography variant="h6" fontWeight="semibold" style={{ textAlign: 'left', marginBottom: '1rem' }}>
+                        Disposal Guide
+                    </Typography>
+                    <List>
+                        <ListItem disablePadding>
+                            <ListItemText primary="Step 1:" secondary="Unplug and clean the kettle thoroughly." />
+                        </ListItem>
+                        <ListItem disablePadding>
+                            <ListItemText primary="Step 2:" secondary="Separate components if possible." />
+                        </ListItem>
+                        <ListItem disablePadding>
+                            <ListItemText primary="Step 3:" secondary="Find local recycling centers." />
+                        </ListItem>
+                    </List>
+                </CardContent>
+            </Card>
 
-                <List>
-                    <ListItem disablePadding>
-                        <ListItemText primary="Unplug and clean the kettle thoroughly. Ensure it is clean and free of any water or residuals." />
-                    </ListItem>
-                    <ListItem disablePadding>
-                        <ListItemText primary="Separate components if possible" />
-                    </ListItem>
-                    <ListItem disablePadding>
-                        <ListItemText primary="Finding Local Recycling Centers (Check our easy recycling locator to find your local reuse, recycling points)" />
-                    </ListItem>
-                </List>
-
-                <Grid container spacing={2} justifyContent="center" marginTop={2}>
-                    <Grid item xs={12} sm={6}>
-                        <Button
-                            variant="outlined"
-                            fullWidth
-                            onClick={() =>
-                                handleOpenDialog(
-                                    'Find Resellers',
-                                    'Contact information, Location on map etc. (Dummy data for now)'
-                                )
-                            }
-                        >
-                            Find Resellers
-                        </Button>
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <Button
-                            variant="outlined"
-                            fullWidth
-                            onClick={() =>
-                                handleOpenDialog(
-                                    'Find Recyclers',
-                                    'Contact information, Location on map etc. (Dummy data for now)'
-                                )
-                            }
-                        >
-                            Find Recyclers
-                        </Button>
-                    </Grid>
+            <Grid container spacing={3} justifyContent="center" sx={{ mb: 4 }}>
+                <Grid item xs={12} sm={6}>
+                    <Button
+                        variant="outlined"
+                        fullWidth
+                        onClick={() =>
+                            handleOpenDialog(
+                                'Find Resellers',
+                                'Contact information, Location on map etc. (Dummy data for now)'
+                            )
+                        }
+                        startIcon={<StoreIcon />}
+                    >
+                        Find Resellers
+                    </Button>
                 </Grid>
-
-                <Grid container justifyContent="center" marginTop={3}>
-                    <Grid item xs={12} sm={6}>
-                        <Button
-                            variant="contained"
-                            fullWidth
-                            onClick={handleResellOnEbay}
-                            endIcon={<ArrowForwardIcon />}
-                            style={{ backgroundColor: '#4285F4', color: 'white' }}
-                        >
-                            Resell on eBay
-                        </Button>
-                    </Grid>
+                <Grid item xs={12} sm={6}>
+                    <Button
+                        variant="outlined"
+                        fullWidth
+                        onClick={() =>
+                            handleOpenDialog(
+                                'Find Recyclers',
+                                'Contact information, Location on map etc. (Dummy data for now)'
+                            )
+                        }
+                        startIcon={<DeleteForeverIcon />}
+                    >
+                        Find Recyclers
+                    </Button>
                 </Grid>
+            </Grid>
 
-                <Dialog open={openDialog} onClose={handleCloseDialog}>
-                    <DialogTitle>{dialogContent.title}</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>{dialogContent.content}</DialogContentText>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleCloseDialog} color="primary">
-                            Close
-                        </Button>
-                    </DialogActions>
-                </Dialog>
-            </Box>
+            <Grid container justifyContent="center">
+                <Grid item xs={12} sm={8} md={6}>
+                    <Button
+                        variant="contained"
+                        fullWidth
+                        onClick={handleResellOnEbay}
+                        endIcon={<ArrowForwardIcon />}
+                        style={{ backgroundColor: '#4285F4', color: 'white' }}
+                    >
+                        Resell on eBay
+                    </Button>
+                </Grid>
+            </Grid>
+
+            <Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
+                <DialogTitle id="alert-dialog-title">
+                    {dialogContent.title}
+                </DialogTitle>
+                <DialogContent id="alert-dialog-description">
+                    <DialogContentText>
+                        {dialogContent.content}
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleCloseDialog} color="primary">
+                        Close
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </Box>
     );
 };

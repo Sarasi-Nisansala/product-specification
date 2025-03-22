@@ -1,146 +1,88 @@
 import React, { useState } from 'react';
-import {
-    Box,
-    Typography,
-    Link,
-    Modal,
-    Button,
-    List,
-    ListItem,
-    ListItemText,
-    IconButton,
-    Tooltip,
-} from '@mui/material';
+import { Box, Typography, Link, Modal, Button, List, ListItem, ListItemText, IconButton, Tooltip, Card, CardContent, CardHeader, Grid } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import DownloadIcon from '@mui/icons-material/CloudDownload'; // Import download icon
+import DownloadIcon from '@mui/icons-material/CloudDownload';
+import PartsID from '../asserts/PartsID.png';
 
 const DocumentSection = () => {
-    const [openModal, setOpenModal] = useState(false);
-    const [modalContent, setModalContent] = useState('');
-    const [modalTitle, setModalTitle] = useState('');
-
-    const handleOpenModal = (title, content) => {
-        setModalTitle(title);
-        setModalContent(content);
-        setOpenModal(true);
-    };
-
-    const handleCloseModal = () => {
-        setOpenModal(false);
-    };
 
     const documentLinks = [
         {
-            title: 'Installation guideline (wenama interface ekkt ynn one)',
+            title: 'Installation Guideline',
             modalContent: (
-                <div>
-                    <Typography variant="body2">
-                        <strong>Step 1:</strong> Unpack the device carefully.
-                    </Typography>
-                    <Typography variant="body2">
-                        <strong>Step 2:</strong> Connect the power cord to the socket.
-                    </Typography>
-                    <Typography variant="body2">
-                        <strong>Step 3:</strong> Turn on the device using the power button.
-                    </Typography>
-                    <Typography variant="body2">
-                        <strong>Note:</strong> Ensure proper ventilation during installation.
-                    </Typography>
-                </div>
+                <List>
+                    <ListItem><ListItemText primary="Step 1:" secondary="Unpack the device carefully." /></ListItem>
+                    <ListItem><ListItemText primary="Step 2:" secondary="Connect the power cord to the socket." /></ListItem>
+                    <ListItem><ListItemText primary="Step 3:" secondary="Turn on the device using the power button." /></ListItem>
+                    <ListItem><ListItemText primary="Note:" secondary="Ensure proper ventilation during installation." /></ListItem>
+                </List>
             ),
-            downloadLink: '#installation-guideline',
+            downloadLink: 'https://drive.google.com/uc?export=download&id=1xZu3NJpbX51TwmhZS0RriTInZNo6dka8',
+            viewLink: 'https://docs.google.com/document/d/1xZu3NJpbX51TwmhZS0RriTInZNo6dka8/edit?usp=sharing&ouid=115409419910619215682&rtpof=true&sd=true'
         },
         {
-            title: 'Product manual',
+            title: 'Product Manual',
             modalContent: (
-                <div>
-                    <Typography variant="body2">
-                        This manual provides detailed information about the product's features and usage.
-                    </Typography>
-                    <Typography variant="body2">
-                        Refer to the troubleshooting section for common issues and solutions.
-                    </Typography>
-                    <Typography variant="body2">
-                        For warranty information, please visit our website.
-                    </Typography>
-                </div>
+                <List>
+                    <ListItem><ListItemText primary="Description:" secondary="Provides detailed product features and usage." /></ListItem>
+                    <ListItem><ListItemText primary="Troubleshooting:" secondary="Refer to this section for common issues and solutions." /></ListItem>
+                    <ListItem><ListItemText primary="Warranty:" secondary="Visit our website for warranty information." /></ListItem>
+                </List>
             ),
-            downloadLink: '#product-manual',
+            downloadLink: 'https://drive.google.com/uc?export=download&id=1ny8RMJpb_ZG0LAHScwQQyRYtdEHuN83z',
+            viewLink: 'https://docs.google.com/document/d/1ny8RMJpb_ZG0LAHScwQQyRYtdEHuN83z/edit?usp=sharing&ouid=115409419910619215682&rtpof=true&sd=true'
         },
         {
-            title: 'Safety instructions',
+            title: 'Safety Instructions',
             modalContent: (
-                <div>
-                    <Typography variant="body2">
-                        <strong>Warning:</strong> Keep away from water.
-                    </Typography>
-                    <Typography variant="body2">
-                        <strong>Caution:</strong> Do not disassemble the device.
-                    </Typography>
-                    <Typography variant="body2">
-                        Use only approved accessories.
-                    </Typography>
-                </div>
+                <List>
+                    <ListItem><ListItemText primary="Warning:" secondary="Keep away from water." /></ListItem>
+                    <ListItem><ListItemText primary="Caution:" secondary="Do not disassemble the device." /></ListItem>
+                    <ListItem><ListItemText primary="Important:" secondary="Use only approved accessories." /></ListItem>
+                </List>
             ),
-            downloadLink: '#safety-instructions',
+            downloadLink: 'https://drive.google.com/uc?export=download&id=11ulR8dPOUajXm1snX0bnSAA0paNt_TSo',
+            viewLink: 'https://docs.google.com/document/d/11ulR8dPOUajXm1snX0bnSAA0paNt_TSo/edit?usp=sharing&ouid=115409419910619215682&rtpof=true&sd=true'
         },
         {
-            title: 'Guideline for maintenance',
+            title: 'Guideline for Maintenance',
             modalContent: (
-                <div>
-                    <Typography variant="body2">
-                        Clean the device with a soft, dry cloth.
-                    </Typography>
-                    <Typography variant="body2">
-                        Check for loose connections regularly.
-                    </Typography>
-                    <Typography variant="body2">
-                        Do not use harsh chemicals for cleaning.
-                    </Typography>
-                </div>
+                <List>
+                    <ListItem><ListItemText primary="Cleaning:" secondary="Clean with a soft, dry cloth." /></ListItem>
+                    <ListItem><ListItemText primary="Connections:" secondary="Check for loose connections regularly." /></ListItem>
+                    <ListItem><ListItemText primary="Chemicals:" secondary="Do not use harsh chemicals." /></ListItem>
+                </List>
             ),
-            downloadLink: '#maintenance-guideline',
+            downloadLink: 'https://drive.google.com/uc?export=download&id=12kk_DXnpw9NfeseGuuloc9LIPyAD2smL',
+            viewLink: 'https://docs.google.com/document/d/12kk_DXnpw9NfeseGuuloc9LIPyAD2smL/edit?usp=sharing&ouid=115409419910619215682&rtpof=true&sd=true'
         },
         {
-            title: 'Guidelines for non-destructive disassembly',
+            title: 'Guidelines for Non-Destructive Disassembly',
             modalContent: (
-                <div>
-                    <Typography variant="body2">
-                        Use a Phillips screwdriver to remove the back panel.
-                    </Typography>
-                    <Typography variant="body2">
-                        Disconnect the internal cables carefully.
-                    </Typography>
-                    <Typography variant="body2">
-                        Refer to the diagram for component locations.
-                    </Typography>
-                </div>
+                <List>
+                    <ListItem><ListItemText primary="Step 1:" secondary="Use a Phillips screwdriver to remove the back panel." /></ListItem>
+                    <ListItem><ListItemText primary="Step 2:" secondary="Disconnect internal cables carefully." /></ListItem>
+                    <ListItem><ListItemText primary="Reference:" secondary="Refer to the diagram for component locations." /></ListItem>
+                </List>
             ),
-            downloadLink: '#disassembly-guideline',
+            downloadLink: 'https://drive.google.com/uc?export=download&id=1VbJnVDuDk_W4jkgiPDhTxtLJj9mHUJEc',
+            viewLink: 'https://docs.google.com/document/d/1VbJnVDuDk_W4jkgiPDhTxtLJj9mHUJEc/edit?usp=sharing&ouid=115409419910619215682&rtpof=true&sd=true'
         },
         {
-            title: 'Instruction for Efficient energy use',
+            title: 'Instructions for Efficient Energy Use',
             modalContent: (
-                <div>
-                    <Typography variant="body2">
-                        Turn off the device when not in use.
-                    </Typography>
-                    <Typography variant="body2">
-                        Use the energy-saving mode.
-                    </Typography>
-                    <Typography variant="body2">
-                        Adjust the brightness settings.
-                    </Typography>
-                </div>
+                <List>
+                    <ListItem><ListItemText primary="Usage:" secondary="Turn off the device when not in use." /></ListItem>
+                    <ListItem><ListItemText primary="Mode:" secondary="Use the energy-saving mode." /></ListItem>
+                    <ListItem><ListItemText primary="Settings:" secondary="Adjust the brightness settings." /></ListItem>
+                </List>
             ),
-            downloadLink: '#energy-use-instruction',
+            downloadLink: 'https://drive.google.com/uc?export=download&id=1Cu1xT46Aba96dmFpBcuNBSMwq9FJcGYC',
+            viewLink: 'https://docs.google.com/document/d/1Cu1xT46Aba96dmFpBcuNBSMwq9FJcGYC/edit?usp=sharing&ouid=115409419910619215682&rtpof=true&sd=true'
         },
     ];
 
     const youtubeVideoLink = 'https://www.youtube.com/watch?v=q5tnNVPqN10';
-    const videoUnavailableMessage = 'Video unavailable - This video is private';
-    const videoTitle = 'Samsonite Eco Spinner - A step further in our responsible journey';
-    const videoDate = 'Apr 16, 2021';
 
     return (
         <Box
@@ -148,120 +90,98 @@ const DocumentSection = () => {
                 backgroundColor: '#f8f8f8',
                 borderRadius: '20px',
                 padding: '2rem',
-                maxWidth: '700px',
+                maxWidth: '800px',
                 margin: '2rem auto',
                 boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
             }}
         >
-            <Box sx={{ padding: '1rem', borderBottom: '1px solid #e0e0e0' }}>
-                <Typography variant="h6" gutterBottom>
-                    Documents and Media
-                </Typography>
-            </Box>
-            <Typography variant="subtitle1" gutterBottom>
-                Parts Identification
+            <Typography variant="h4" fontWeight="bold" gutterBottom style={{ textAlign: 'left' }}>
+                Documents and Media
             </Typography>
 
-            <Box
-                sx={{
-                    backgroundColor: 'white',
-                    borderRadius: '16px',
-                    padding: '2rem',
-                    boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.1)',
-                    textAlign: 'center',
-                }}
-            >
-                {/* Replace with your image URL */}
-                <img
-                    src="https://i.imgur.com/your_environmental_impacts_image.png"
-                    alt="Environmental Impacts"
-                    style={{ maxWidth: '100%' }}
-                />
-            </Box>
+            <Typography variant="h6" fontWeight="semibold" style={{ textAlign: 'left', marginTop: '2rem', marginBottom: '1rem' }}>
+                Parts Identification
+            </Typography>
+            <Card sx={{ mb: 4 }}>
+                <CardContent>
+                    <img
+                        src={PartsID}
+                        alt="Parts Identification"
+                        style={{ maxWidth: '100%', borderRadius: '12px' }}
+                    />
+                </CardContent>
+            </Card>
+
+            <Typography variant="h6" fontWeight="semibold" style={{ textAlign: 'left', marginBottom: '1rem' }}>
+                Document Links
+            </Typography>
+
             <List>
                 {documentLinks.map((doc, index) => (
                     <ListItem key={index} disablePadding>
-                        <ListItemText
-                            primary={
+                        <Grid container alignItems="center" justifyContent="space-between">
+                            <Grid item>
                                 <Link
+                                    href={doc.viewLink}
                                     component="button"
-                                    variant="body2"
-                                    onClick={() => handleOpenModal(doc.title, doc.modalContent)}
-                                    sx={{ cursor: 'pointer' }}
+                                    variant="body1"
+                                    sx={{ cursor: 'pointer', textAlign: 'left' }}
+                                    onClick={(e) => {
+                                        e.preventDefault(); // Prevent default button behavior
+                                        window.open(doc.viewLink, '_blank', 'noopener,noreferrer'); // Open in new tab
+                                    }}
                                 >
                                     {doc.title}
                                 </Link>
-                            }
-                            secondary={
-                                <Tooltip title="Download">
-                                    <IconButton href={doc.downloadLink} size="small">
+                            </Grid>
+                            <Grid item>
+                                <Tooltip title="Download from Google Drive">
+                                    <IconButton
+                                        href={doc.downloadLink}
+                                        target="_blank"  // Open in a new tab
+                                        rel="noopener noreferrer" // Best practice for security with target="_blank"
+                                        size="small"
+                                    >
                                         <DownloadIcon />
                                     </IconButton>
                                 </Tooltip>
-                            }
-                        />
+                            </Grid>
+                        </Grid>
                     </ListItem>
                 ))}
             </List>
 
-            <Box sx={{ padding: '1rem', borderBottom: '1px solid #e0e0e0', marginTop: '1rem' }}>
-                <Typography variant="body2">
-                    <Link href={youtubeVideoLink} target="_blank" rel="noopener noreferrer">
-                        {youtubeVideoLink} (Add this video like this)
-                    </Link>
-                </Typography>
-
-                <Box
-                    sx={{
-                        backgroundColor: '#e0e0e0',
-                        padding: '1rem',
-                        marginTop: '1rem',
-                        textAlign: 'center',
-                    }}
-                >
-                    <Typography variant="body2">{videoUnavailableMessage}</Typography>
-                </Box>
-
-                <Typography variant="subtitle1" marginTop={2}>
-                    {videoTitle}
-                </Typography>
-                <Typography variant="body2">{videoDate}</Typography>
-
-                <Button
-                    variant="text"
-                    startIcon={<PlayArrowIcon />}
-                    sx={{ marginTop: '1rem' }}
-                    onClick={() => window.open(youtubeVideoLink, '_blank')}
-                >
-                    Watch full video >
-                </Button>
-            </Box>
-
-            <Modal open={openModal} onClose={handleCloseModal}>
-                <Box
-                    sx={{
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)',
-                        width: 400,
-                        bgcolor: 'background.paper',
-                        border: '2px solid #000',
-                        boxShadow: 24,
-                        p: 4,
-                    }}
-                >
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        {modalTitle}
+            <Card sx={{ mt: 4, boxShadow: 'none' }}>
+                <CardContent>
+                    <Typography variant="h6" fontWeight="semibold" style={{ textAlign: 'left', marginBottom: '1rem' }}>
+                        Video
                     </Typography>
-                    <Box id="modal-modal-description" sx={{ mt: 2 }}>
-                        {modalContent}
+
+                    <Box
+                        sx={{
+                            backgroundColor: '#e0e0e0',
+                            padding: '1rem',
+                            marginTop: '1rem',
+                            textAlign: 'center',
+                            borderRadius: '8px'
+                        }}
+                    >
+                        <iframe width="560" height="315"
+                                src="https://www.youtube.com/embed/q5tnNVPqN10?si=Qzd-qaIH5ESM8xgY"
+                                title="YouTube video player" frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                     </Box>
-                    <Button onClick={handleCloseModal} sx={{ marginTop: 2 }}>
-                        Close
+                    <Button
+                        variant="text"
+                        startIcon={<PlayArrowIcon/>}
+                        sx={{marginTop: '1rem'}}
+                        onClick={() => window.open(youtubeVideoLink, '_blank')}
+                    >
+                        Watch on Youtube
                     </Button>
-                </Box>
-            </Modal>
+                </CardContent>
+            </Card>
         </Box>
     );
 };

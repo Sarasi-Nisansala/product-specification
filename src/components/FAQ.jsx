@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-    Box,
-    Typography,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-} from '@mui/material';
+import { Box, Typography, Accordion, AccordionSummary, AccordionDetails, Card, CardContent, CardHeader } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const FAQSection = () => {
@@ -33,29 +27,39 @@ const FAQSection = () => {
     ];
 
     return (
-        <Box
-            sx={{
-                backgroundColor: '#f8f8f8',
-                borderRadius: '20px',
-                padding: '2rem',
-                maxWidth: '600px',
-                margin: '2rem auto',
-                boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-            }}
-        >
-            <Typography variant="h6" gutterBottom>
-                FAQ
-            </Typography>
-            {faqs.map((faq, index) => (
-                <Accordion key={index}>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls={`panel${index}a-content`} id={`panel${index}a-header`}>
-                        <Typography variant="subtitle1">{faq.question}</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Typography>{faq.answer}</Typography>
-                    </AccordionDetails>
-                </Accordion>
-            ))}
+        <Box sx={{
+            backgroundColor: '#f8f8f8',
+            borderRadius: '20px',
+            padding: '2rem',
+            maxWidth: '800px',
+            margin: '2rem auto',
+            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+        }}>
+            <Card>
+                <CardHeader
+                    title={
+                        <Typography variant="h4" fontWeight="bold" style={{ textAlign: 'left' }}>
+                            Frequently Asked Questions
+                        </Typography>
+                    }
+                />
+                <CardContent>
+                    {faqs.map((faq, index) => (
+                        <Accordion key={index}>
+                            <AccordionSummary
+                                expandIcon={<ExpandMoreIcon />}
+                                aria-controls={`panel${index}a-content`}
+                                id={`panel${index}a-header`}
+                            >
+                                <Typography variant="h6" fontWeight="semibold" style={{ textAlign: 'left' }}>{faq.question}</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography variant="body1" color="textSecondary" style={{ textAlign: 'left' }}>{faq.answer}</Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                    ))}
+                </CardContent>
+            </Card>
         </Box>
     );
 };

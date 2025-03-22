@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Typography, List, ListItem, ListItemText } from '@mui/material';
+import { Box, Typography, List, ListItem, ListItemText, Card, CardContent, CardHeader, Grid } from '@mui/material';
+import { Trash2, Recycle } from 'lucide-react'; // Import icons
 
 const ElectricKettleDisposal = () => {
     const electricKettleDisposalData = {
@@ -48,55 +49,91 @@ const ElectricKettleDisposal = () => {
     };
 
     return (
-        <Box>
+        <Box sx={{
+            backgroundColor: '#f8f8f8',
+            borderRadius: '20px',
+            padding: '2rem',
+            maxWidth: '800px',
+            margin: '2rem auto',
+            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+        }}>
             {/* Section 1: Why You Shouldn't Throw Electric Kettles in the Garbage */}
-            <Box
-                sx={{
-                    backgroundColor: '#f8f8f8',
-                    borderRadius: '20px',
-                    padding: '2rem',
-                    maxWidth: '600px',
-                    margin: '2rem auto',
-                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-                }}
-            >
-                <Typography variant="h6" gutterBottom>
-                    {electricKettleDisposalData.whyNotGarbage.title}
-                </Typography>
-                <List>
-                    {electricKettleDisposalData.whyNotGarbage.reasons.map((reason, index) => (
-                        <ListItem key={index} disablePadding>
-                            <ListItemText primary={reason.title} secondary={reason.description} />
-                        </ListItem>
-                    ))}
-                </List>
-            </Box>
+            <Card>
+                <CardHeader
+                    title={
+                        <Typography variant="h4" fontWeight="bold" style={{ textAlign: 'left' }}>
+                            {electricKettleDisposalData.whyNotGarbage.title}
+                        </Typography>
+                    }
+                />
+                <CardContent>
+
+                    <List>
+                        {electricKettleDisposalData.whyNotGarbage.reasons.map((reason, index) => (
+                            <ListItem key={index} disablePadding>
+                                <Grid container alignItems="flex-start" spacing={2}>
+                                    <Grid item>
+                                        {index === 0 && <Trash2 color="warning" size={24} />}
+                                        {index === 1 && <Trash2 color="error" size={24} />}
+                                        {index === 2 && <Trash2 color="secondary" size={24} />}
+                                    </Grid>
+                                    <Grid item xs>
+                                        <ListItemText
+                                            primary={
+                                                <Typography variant="h6" fontWeight="semibold" style={{ textAlign: 'left' }}>
+                                                    {reason.title}
+                                                </Typography>
+                                            }
+                                            secondary={
+                                                <Typography variant="body1" color="textSecondary" style={{ textAlign: 'left' }}>
+                                                    {reason.description}
+                                                </Typography>
+                                            }
+                                        />
+                                    </Grid>
+                                </Grid>
+                            </ListItem>
+                        ))}
+                    </List>
+                </CardContent>
+            </Card>
 
             {/* Section 2: Environmental Benefits of Proper Disposal */}
-            <Box
-                sx={{
-                    backgroundColor: '#f8f8f8',
-                    borderRadius: '20px',
-                    padding: '2rem',
-                    maxWidth: '600px',
-                    margin: '2rem auto',
-                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-                }}
-            >
-                <Typography variant="h6" gutterBottom>
-                    {electricKettleDisposalData.environmentalBenefits.title}
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                    {electricKettleDisposalData.environmentalBenefits.intro}
-                </Typography>
-                <List>
-                    {electricKettleDisposalData.environmentalBenefits.benefits.map((benefit, index) => (
-                        <ListItem key={index} disablePadding>
-                            <ListItemText primary={benefit.title} secondary={benefit.description} />
-                        </ListItem>
-                    ))}
-                </List>
-            </Box>
+            <Card sx={{ margin: '2rem auto', maxWidth: '800px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)' }}>
+                <CardHeader
+                    title={
+                        <Typography variant="h4" fontWeight="bold" style={{ textAlign: 'left' }}>
+                            {electricKettleDisposalData.environmentalBenefits.title}
+                        </Typography>
+                    }
+                />
+                <CardContent>
+                    <Typography variant="body1" gutterBottom style={{ textAlign: 'left' }}>
+                        {electricKettleDisposalData.environmentalBenefits.intro}
+                    </Typography>
+                    <List>
+                        {electricKettleDisposalData.environmentalBenefits.benefits.map((benefit, index) => (
+                            <ListItem key={index} disablePadding>
+                                <Grid container alignItems="flex-start" spacing={2}>
+                                    <Grid item>
+                                        <Recycle color="success" size={24}/>
+                                    </Grid>
+                                    <Grid item xs>
+                                        <ListItemText
+                                            primary={  <Typography variant="h6" fontWeight="semibold" style={{textAlign: 'left'}}>
+                                                {benefit.title}
+                                            </Typography>}
+                                            secondary={ <Typography variant="body1" color="textSecondary" style={{textAlign: 'left'}}>
+                                                {benefit.description}
+                                            </Typography>}
+                                        />
+                                    </Grid>
+                                </Grid>
+                            </ListItem>
+                        ))}
+                    </List>
+                </CardContent>
+            </Card>
         </Box>
     );
 };
