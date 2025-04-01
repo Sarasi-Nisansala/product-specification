@@ -7,17 +7,10 @@ const materialData = {
         { name: "Stainless steel", weight: 645 },
         { name: "Brass", weight: 24 },
         { name: "Copper", weight: 19 },
-        { name: "Aluminium", weight: "--" },
-        { name: "Tin", weight: "--" },
-        { name: "Silver", weight: "--" },
         { name: "Polypropylene (PP)", weight: 419 },
         { name: "Polyvinyl chloride", weight: 57 },
         { name: "Nylon", weight: 36 },
-        { name: "Polyoxymethylene (POM)", weight: "--" },
-        { name: "Polycarbonate", weight: "--" },
-        { name: "Acrylonitrile butadiene styrene", weight: "--" },
         { name: "High density polyethylene", weight: 1 },
-        { name: "Silicone", weight: "--" }
     ],
     packaging: [
         { name: "Low density polyethylene", weight: 13 },
