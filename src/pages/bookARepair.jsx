@@ -13,31 +13,49 @@ const BookARepair = () => {
 
     const data = [
         {
-            name: 'Jeewantha Repairs',
-            address: '123 Main St, Kandy District',
-            phone: '077-1234567',
+            name: 'Colombo Tech Repairs',
+            address: '45 Galle Road, Colombo 03',
+            phone: '011-2345678',
+            rating: 5,
+        },
+        {
+            name: 'Kandy Gadget Fix',
+            address: '12 Temple Street, Kandy',
+            phone: '081-2233445',
             rating: 4,
         },
         {
-            name: 'Jeewantha Repairs',
-            address: '123 Main St, Kandy District',
-            phone: '077-1234567',
+            name: 'Jaffna Smart Services',
+            address: '88 Main Street, Jaffna Town',
+            phone: '021-4567890',
             rating: 4,
         },
         {
-            name: 'Jeewantha Repairs',
-            address: '123 Main St, Kandy District',
-            phone: '077-1234567',
+            name: 'Matara Mobile Repairs',
+            address: '10 Beach Road, Matara',
+            phone: '041-3344556',
+            rating: 3,
+        },
+        {
+            name: 'Galle Tech Zone',
+            address: '27 Lighthouse Street, Galle Fort',
+            phone: '091-2233445',
+            rating: 5,
+        },
+        {
+            name: 'Kurunegala Repair Hub',
+            address: '76 Town Hall Road, Kurunegala',
+            phone: '037-2223344',
             rating: 4,
         },
         {
-            name: 'Jeewantha Repairs',
-            address: '123 Main St, Kandy District',
-            phone: '077-1234567',
-            rating: 4,
+            name: 'Anuradhapura Gadget Care',
+            address: '20 Mihindu Mawatha, Anuradhapura',
+            phone: '025-3456789',
+            rating: 3,
         },
-        // Add 3–4 more objects for a full row
     ];
+
 
     return (
         <Container sx={{ mt: 4 }}>
