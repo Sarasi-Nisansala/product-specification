@@ -9,7 +9,7 @@ import RecyclingIcon from '@mui/icons-material/Recycling';
 
 const navigationItems = [
     { label: 'Customer Registration', icon: <PersonAddIcon fontSize="large" />, route: '/customerHistory' },
-    { label: 'Find Suppliers of Components', icon: <BuildIcon fontSize="large" />, route: '/find-suppliers' },
+    { label: 'Find Suppliers of Components', icon: <BuildIcon fontSize="large" />, route: '/componentSupply' },
     { label: 'Repair Your Product', icon: <HandymanIcon fontSize="large" />, route: '/repair' },
     { label: 'Resell Your Product', icon: <ShoppingCartIcon fontSize="large" />, route: '/resellCenter' },
     { label: 'Find Recycling Partners', icon: <RecyclingIcon fontSize="large" />, route: '/recycleCenterPage' },

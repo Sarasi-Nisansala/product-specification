@@ -18,6 +18,7 @@ import ProductMaterialsPage from "./pages/ProductMaterialsPage";
 import SocialSustainabilityPage from "./pages/SocialSustainabilityPage";
 import ManualsPage from "./pages/ManualsPage";
 import CompliencePage from "./pages/CompliencePage";
+import SuppliersOfComponents from "./pages/SuppliersOfComponents";
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
                     <Route path="/socialSustainability" element={<SocialSustainabilityPage />} />
                     <Route path="/manuals" element={<ManualsPage />} />
                     <Route path="/complience" element={<CompliencePage />} />
+                    <Route path="/componentSupply" element={<SuppliersOfComponents />} />
                     <Route path="/test" element={<Product_Identification />} />
                 </Routes>
             </Router>
