@@ -90,7 +90,7 @@ const DocumentSection = () => {
                 backgroundColor: '#f8f8f8',
                 borderRadius: '20px',
                 padding: '2rem',
-                maxWidth: '800px',
+                maxWidth: '1200px',
                 margin: '2rem auto',
                 boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
             }}
@@ -102,7 +102,7 @@ const DocumentSection = () => {
             <Typography variant="h6" fontWeight="semibold" style={{ textAlign: 'left', marginTop: '2rem', marginBottom: '1rem' }}>
                 Parts Identification
             </Typography>
-            <Card sx={{ mb: 4 }}>
+            <Card sx={{ mb: 4 }} id="partIdentification">
                 <CardContent>
                     <img
                         src={PartsID}
@@ -116,7 +116,7 @@ const DocumentSection = () => {
                 Document Links
             </Typography>
 
-            <List>
+            <List id='docList'>
                 {documentLinks.map((doc, index) => (
                     <ListItem key={index} disablePadding>
                         <Grid container alignItems="center" justifyContent="space-between">
@@ -151,7 +151,7 @@ const DocumentSection = () => {
                 ))}
             </List>
 
-            <Card sx={{ mt: 4, boxShadow: 'none' }}>
+            <Card sx={{ mt: 4, boxShadow: 'none' }} id="videoGuidelines">
                 <CardContent>
                     <Typography variant="h6" fontWeight="semibold" style={{ textAlign: 'left', marginBottom: '1rem' }}>
                         Video

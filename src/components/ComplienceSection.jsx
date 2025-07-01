@@ -35,7 +35,7 @@ const ComplianceSection = () => {
                 backgroundColor: '#f8f8f8',
                 borderRadius: '20px',
                 padding: '2rem',
-                maxWidth: '800px',
+                maxWidth: '1200px',
                 margin: '2rem auto',
                 boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
             }}
@@ -44,7 +44,7 @@ const ComplianceSection = () => {
                 Compliance
             </Typography>
 
-            <Card sx={{ mb: 4 }}>
+            <Card sx={{ mb: 4 }} id="prodRegulations">
                 <CardContent>
                     <Typography variant="h6" fontWeight="semibold" style={{ textAlign: 'left', marginBottom: '1rem' }}>
                         {complianceData.productRegulation.title}
@@ -64,7 +64,7 @@ const ComplianceSection = () => {
                 </CardContent>
             </Card>
 
-            <Card>
+            <Card id="certifications">
                 <CardContent>
                     <Typography variant="h6" fontWeight="semibold" style={{ textAlign: 'left', marginBottom: '1rem' }}>
                         Certifications

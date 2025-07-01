@@ -12,11 +12,12 @@ const RecycledContentSection = ({ percentage, amount, totalWeight }) => {
                 backgroundColor: '#f8f8f8',
                 borderRadius: '20px',
                 padding: '2rem',
-                maxWidth: '800px',
+                maxWidth: '1200px',
                 margin: '2rem auto',
                 boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
                 textAlign: 'center'
             }}
+            id="recycledSection"
         >
             <Typography variant="h4" fontWeight="bold" gutterBottom style={{ textAlign: 'left' }}>
                 Recycled Content

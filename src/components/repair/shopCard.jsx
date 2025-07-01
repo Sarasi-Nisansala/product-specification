@@ -180,7 +180,7 @@ const RepairCard = ({ name, address, phone, rating, productId }) => {
                         <Button
                             fullWidth
                             variant="contained"
-                            onClick={() => navigate(`/repairHistory/${productId}`)}
+                            onClick={() => navigate(`/repairHistory`)}
                         >
                             View My Repairs
                         </Button>

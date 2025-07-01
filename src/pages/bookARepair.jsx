@@ -2,13 +2,17 @@ import React from 'react';
 import {Grid, Container, Typography, Button} from '@mui/material';
 import RepairCard from "../components/repair/shopCard";
 import {useNavigate, useParams} from "react-router-dom";
+import {useProduct} from "../context/productContext";
+import Navbar from "../components/Navbar";
+import {navBarSections} from "../configs/SectionConfig";
+import Footer from "../components/Footer";
 
 const BookARepair = () => {
-    const {productId} = useParams();
+    const {productId} = useProduct();
     const navigate = useNavigate();
 
     const handleHistoryClick = () => {
-        navigate(`/repairHistory/${productId}`);
+        navigate(`/repairHistory`);
     };
 
     const data = [
@@ -58,28 +62,32 @@ const BookARepair = () => {
 
 
     return (
-        <Container sx={{ mt: 4 }}>
-            <Grid container spacing={2} justifyContent="space-between" alignItems="center">
-                <Grid item xs={6} display="flex" justifyContent="start" alignItems="center">
-                    <Typography variant="h4" color="primary">
-                        Book a Repair Service
-                    </Typography>
-                </Grid>
-                <Grid item xs={6} display="flex" justifyContent="end" alignItems="center">
-                    <Button onClick={handleHistoryClick} variant="outlined">
-                        Show Repair History
-                    </Button>
-                </Grid>
-            </Grid>
-
-            <Grid container spacing={2} mt={2}>
-                {data.map((item, index) => (
-                    <Grid item md={12} key={index}>
-                        <RepairCard {...item} productId={productId} />
+        <>
+            <Navbar navBarSections={navBarSections} />
+            <Container sx={{ mt: 4 }}>
+                <Grid container spacing={2} justifyContent="space-between" alignItems="center">
+                    <Grid item xs={6} display="flex" justifyContent="start" alignItems="center">
+                        <Typography variant="h4" color="primary">
+                            Book a Repair Service
+                        </Typography>
                     </Grid>
-                ))}
-            </Grid>
-        </Container>
+                    <Grid item xs={6} display="flex" justifyContent="end" alignItems="center">
+                        <Button onClick={handleHistoryClick} variant="outlined">
+                            Show Repair History
+                        </Button>
+                    </Grid>
+                </Grid>
+
+                <Grid container spacing={2} mt={2}>
+                    {data.map((item, index) => (
+                        <Grid item md={12} key={index}>
+                            <RepairCard {...item} productId={productId} />
+                        </Grid>
+                    ))}
+                </Grid>
+            </Container>
+            <Footer />
+        </>
     );
 };
 

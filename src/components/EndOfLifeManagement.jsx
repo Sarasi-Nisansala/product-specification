@@ -43,7 +43,7 @@ const EndOfLifeManagement = () => {
                 backgroundColor: '#f8f8f8',
                 borderRadius: '20px',
                 padding: '2rem',
-                maxWidth: '800px',
+                maxWidth: '1200px',
                 margin: '2rem auto',
                 boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
             }}
@@ -52,7 +52,7 @@ const EndOfLifeManagement = () => {
                 End of Life Management
             </Typography>
 
-            <Card sx={{ mb: 4 }}>
+            <Card sx={{ mb: 4 }} id="disposalGuide">
                 <CardContent>
                     <Typography variant="h6" fontWeight="semibold" style={{ textAlign: 'left', marginBottom: '1rem' }}>
                         Disposal Guide
@@ -70,53 +70,6 @@ const EndOfLifeManagement = () => {
                     </List>
                 </CardContent>
             </Card>
-
-            <Grid container spacing={3} justifyContent="center" sx={{ mb: 4 }}>
-                <Grid item xs={12} sm={6}>
-                    <Button
-                        variant="outlined"
-                        fullWidth
-                        onClick={() =>
-                            handleOpenDialog(
-                                'Find Resellers',
-                                'Contact information, Location on map etc. (Dummy data for now)'
-                            )
-                        }
-                        startIcon={<StoreIcon />}
-                    >
-                        Find Resellers
-                    </Button>
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                    <Button
-                        variant="outlined"
-                        fullWidth
-                        onClick={() =>
-                            handleOpenDialog(
-                                'Find Recyclers',
-                                'Contact information, Location on map etc. (Dummy data for now)'
-                            )
-                        }
-                        startIcon={<DeleteForeverIcon />}
-                    >
-                        Find Recyclers
-                    </Button>
-                </Grid>
-            </Grid>
-
-            <Grid container justifyContent="center">
-                <Grid item xs={12} sm={8} md={6}>
-                    <Button
-                        variant="contained"
-                        fullWidth
-                        onClick={handleResellOnEbay}
-                        endIcon={<ArrowForwardIcon />}
-                        style={{ backgroundColor: '#4285F4', color: 'white' }}
-                    >
-                        Resell on eBay
-                    </Button>
-                </Grid>
-            </Grid>
 
             <Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
                 <DialogTitle id="alert-dialog-title">

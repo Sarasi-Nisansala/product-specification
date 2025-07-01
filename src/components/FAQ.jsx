@@ -30,12 +30,10 @@ const FAQSection = () => {
         <Box sx={{
             backgroundColor: '#f8f8f8',
             borderRadius: '20px',
-            padding: '2rem',
-            maxWidth: '800px',
-            margin: '2rem auto',
             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+            width: '100%',
         }}>
-            <Card>
+            <Card sx={{mx: 2}}>
                 <CardHeader
                     title={
                         <Typography variant="h4" fontWeight="bold" style={{ textAlign: 'left' }}>

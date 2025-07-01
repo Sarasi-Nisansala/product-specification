@@ -53,12 +53,12 @@ const ElectricKettleDisposal = () => {
             backgroundColor: '#f8f8f8',
             borderRadius: '20px',
             padding: '2rem',
-            maxWidth: '800px',
+            maxWidth: '1200px',
             margin: '2rem auto',
             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
         }}>
             {/* Section 1: Why You Shouldn't Throw Electric Kettles in the Garbage */}
-            <Card>
+            <Card id="garbage">
                 <CardHeader
                     title={
                         <Typography variant="h4" fontWeight="bold" style={{ textAlign: 'left' }}>
@@ -99,7 +99,7 @@ const ElectricKettleDisposal = () => {
             </Card>
 
             {/* Section 2: Environmental Benefits of Proper Disposal */}
-            <Card sx={{ margin: '2rem auto', maxWidth: '800px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)' }}>
+            <Card sx={{ margin: '2rem auto', maxWidth: '1200px', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)' }} id="properDisposal">
                 <CardHeader
                     title={
                         <Typography variant="h4" fontWeight="bold" style={{ textAlign: 'left' }}>

@@ -26,9 +26,10 @@ const MaterialCompositionTable = () => {
                 padding: "2rem",
                 borderRadius: "16px",
                 boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
-                maxWidth: "800px",
+                maxWidth: "1200px",
                 margin: "2rem auto",
             }}
+            id='materialComposition'
         >
             <Typography variant="h4" fontWeight="bold" gutterBottom style={{ textAlign: 'left' }}>
                 Material Composition

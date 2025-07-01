@@ -1,50 +1,51 @@
-import React from "react";
-import ProductInfo from "../components/Product_Identification";
-import MaterialsSection from "../components/MaterialsSection";
-import MaterialCompositionTable from "../components/MaterialComposition";
-import RecycledContentSection from "../components/RecycledContent";
-import ProductDetailsSection from "../components/HazarsMaterials";
-import SupplyChainSection from "../components/SupplyChainSection";
-import EnvironmentalImpactSection from "../components/EnvironmentalImpactSection";
-import ComplianceSection from "../components/ComplienceSection";
-import DocumentSection from "../components/DocumentSection";
-import EndOfLifeManagement from "../components/EndOfLifeManagement";
-import PackagingRecyclingSection from "../components/PackagingRecyclingSection";
-import ElectricKettleDisposal from "../components/Environment";
+import React, {useEffect} from "react";
 import FAQSection from "../components/FAQ";
 import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Navigations from "../components/Navigations";
+import Footer from "../components/Footer";
+import {navBarSections} from "../configs/SectionConfig";
+import {useProduct} from "../context/productContext";
+import {useLocation, useSearchParams} from "react-router-dom";
+import Product_Identification from "../components/Product_Identification";
+import ProductInfo from "../components/Product_Identification";
+import {scrollToSection} from "../utils/helperMethods";
 
 const Home = () => {
+    const [searchParams] = useSearchParams();
+    const { productId, setProductId } = useProduct();
+    const location = useLocation();
+
+    useEffect(() => {
+        scrollToSection(location);
+    }, [location]);
+
+    useEffect(() => {
+        if(!productId || productId === ""){
+            const id = searchParams.get('productId');
+            if (id) {
+                setProductId(id);
+            }
+        }
+    }, [searchParams, setProductId]);
+
     const sections = [
-        {label: 'Product Info', component: <ProductInfo/>, id: 'productInfo'},
-        {label: 'Materials', component: <MaterialsSection/>, id: 'materials'},
-        {label: 'Material Composition', component: <MaterialCompositionTable/>, id: 'materialComposition'},
-        {
-            label: 'Recycled Content',
-            component: <RecycledContentSection percentage={62} amount={1.15} totalWeight={2.6}/>,
-            id: 'recycledContent'
-        },
-        {label: 'Hazardous Materials', component: <ProductDetailsSection/>, id: 'hazardousMaterials'},
-        {label: 'Supply Chain', component: <SupplyChainSection/>, id: 'supplyChain'},
-        {label: 'Environmental Impact', component: <EnvironmentalImpactSection/>, id: 'environmentalImpact'},
-        {label: 'Compliance', component: <ComplianceSection/>, id: 'compliance'},
-        {label: 'Documents', component: <DocumentSection/>, id: 'documents'},
-        {label: 'End of Life', component: <EndOfLifeManagement/>, id: 'endOfLife'},
-        {label: 'Packaging', component: <PackagingRecyclingSection/>, id: 'packaging'},
-        {label: 'Environment', component: <ElectricKettleDisposal/>, id: 'environment'},
+        {label: 'Product Identification', component: <ProductInfo/>, id: 'productIdentification'},
+        {label: 'Navigations', component: <Navigations/>, id: 'navigations'},
         {label: 'FAQ', component: <FAQSection/>, id: 'faq'},
     ];
 
     return (
         <>
+            <Navbar navBarSections={navBarSections} />
             <Header />
             {sections.map((section) => (
                 <div key={section.id} id={section.id}>
                     {section.component}
                 </div>
             ))}
+            <Footer/>
         </>
-
     );
 }
 

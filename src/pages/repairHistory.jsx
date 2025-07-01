@@ -13,9 +13,13 @@ import {
 } from '@mui/material';
 import { collection, query, where, getDocs, orderBy } from 'firebase/firestore';
 import { db } from '../firebase';
+import {useProduct} from "../context/productContext";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import {navBarSections} from "../configs/SectionConfig";
 
 const RepairHistoryPage = () => {
-    const { productId } = useParams();
+    const { productId } = useProduct();
     const [bookingData, setBookingData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -71,51 +75,55 @@ const RepairHistoryPage = () => {
     }
 
     return (
-        <Container sx={{ mt: 4, mb: 6 }}>
-            <Typography variant="h4" color="primary" gutterBottom>
-                Repair History
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>
-                Below are the details of all repair services associated with Product ID: <strong>{productId}</strong>
-            </Typography>
+        <>
+            <Navbar navBarSections={navBarSections} />
+            <Container sx={{ mt: 4, mb: 6 }}>
+                <Typography variant="h4" color="primary" gutterBottom>
+                    Repair History
+                </Typography>
+                <Typography variant="subtitle1" gutterBottom>
+                    Below are the details of all repair services associated with Product ID: <strong>{productId}</strong>
+                </Typography>
 
-            <Divider sx={{ my: 3 }} />
+                <Divider sx={{ my: 3 }} />
 
-            <Grid container spacing={3}>
-                {bookingData.map((booking) => (
-                    <Grid item xs={12} md={12} key={booking.id}>
-                        <Card elevation={3} sx={{ borderRadius: 3, p: 1 }}>
-                            <CardContent>
-                                <Typography variant="h6" color="text.primary" fontWeight="bold">
-                                    {booking.RepairType} Repair at {booking.serviceCenter}
-                                </Typography>
-                                <Typography variant="body2" color="text.secondary" mb={2}>
-                                    Booking ID: {booking.id}
-                                </Typography>
+                <Grid container spacing={3}>
+                    {bookingData.map((booking) => (
+                        <Grid item xs={12} md={12} key={booking.id}>
+                            <Card elevation={3} sx={{ borderRadius: 3, p: 1 }}>
+                                <CardContent>
+                                    <Typography variant="h6" color="text.primary" fontWeight="bold">
+                                        {booking.RepairType} Repair at {booking.serviceCenter}
+                                    </Typography>
+                                    <Typography variant="body2" color="text.secondary" mb={2}>
+                                        Booking ID: {booking.id}
+                                    </Typography>
 
-                                <Grid container spacing={2}>
-                                    <Grid item xs={12} sm={6}>
-                                        <Typography><strong>Booked On:</strong> {booking.timestamp?.toDate().toLocaleString()}</Typography>
+                                    <Grid container spacing={2}>
+                                        <Grid item xs={12} sm={6}>
+                                            <Typography><strong>Booked On:</strong> {booking.timestamp?.toDate().toLocaleString()}</Typography>
+                                        </Grid>
+                                        <Grid item xs={12} sm={6}>
+                                            <Typography><strong>Repair Date:</strong> {booking.Date}</Typography>
+                                        </Grid>
+                                        <Grid item xs={12} sm={6}>
+                                            <Typography><strong>Appliance Type:</strong> {booking.AppliType}</Typography>
+                                        </Grid>
+                                        <Grid item xs={12} sm={6}>
+                                            <Typography><strong>Model:</strong> {booking.Model}</Typography>
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <Typography><strong>Issue Description:</strong> {booking.Description}</Typography>
+                                        </Grid>
                                     </Grid>
-                                    <Grid item xs={12} sm={6}>
-                                        <Typography><strong>Repair Date:</strong> {booking.Date}</Typography>
-                                    </Grid>
-                                    <Grid item xs={12} sm={6}>
-                                        <Typography><strong>Appliance Type:</strong> {booking.AppliType}</Typography>
-                                    </Grid>
-                                    <Grid item xs={12} sm={6}>
-                                        <Typography><strong>Model:</strong> {booking.Model}</Typography>
-                                    </Grid>
-                                    <Grid item xs={12}>
-                                        <Typography><strong>Issue Description:</strong> {booking.Description}</Typography>
-                                    </Grid>
-                                </Grid>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                ))}
-            </Grid>
-        </Container>
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Container>
+            <Footer />
+        </>
     );
 };
 

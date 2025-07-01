@@ -30,10 +30,11 @@ const ProductDetailsSection = () => {
                 backgroundColor: '#f8f8f8',
                 borderRadius: '20px',
                 padding: '2rem',
-                maxWidth: '800px',
+                maxWidth: '1200px',
                 margin: '2rem auto',
                 boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
             }}
+            id="productDetails"
         >
             <Typography variant="h4" fontWeight="bold" gutterBottom style={{ textAlign: 'left' }}>
                 Product Details
