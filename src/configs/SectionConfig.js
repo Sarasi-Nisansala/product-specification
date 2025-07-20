@@ -33,6 +33,7 @@ const navBarSections = [
         subItems: [
             {label: 'Suppliers of Components', id: 'componentsSupplyChain', route: '/componentSupply'},
             {label: 'Repair Centers', id: 'repairCenters', route: '/repair'},
+            {label: 'Maintenance', id: 'maintenance', route: '/maintenance'},
             {label: 'Recycling Partners', id: 'recyclingPartners', route: '/recycleCenterPage'},
             {label: 'Resell Your Product', id: 'resellProduct', route: '/resellCenter'},
         ],
